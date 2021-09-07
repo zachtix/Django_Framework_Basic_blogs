@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Framework</title>
+    <style>
+        /* .content {
+            width: 26%;
+            margin-left: 10px;
+            background-color: aquamarine;
+            border-radius: 10px;
+            padding: 10px;
+        } */
+        .tag {
+            display: flex;
+        }
+        .tag p {
+            margin-top: 20px;
+            margin-left: 10px;
+        }
+        .rating {
+            display: flex;
+        }
+        .rating p {
+            margin-top: 20px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Home Page</h1>
+    <p>Atthawut</p>
+    <h3>Django Framework Tutorial</h3>
+    <h2>หัวข้อ : {{ name }}</h2>
+    <h2>ผู้เขียน : {{ author }}</h2>
+    <div class="tag">
+        <h3>Tags</h3>
+        {% for tag in tags %}
+        <p>{{tag}}</p>
+        {% endfor %}
+    </div>
+    <div class="rating">
+        <h3>ระบความนิยม : </h3>
+        {% if rating >= 3 %}
+            <p>ได้รับความนิยม</p>
+        {% else %}
+            <p>ไม่ได้รับความนิยม</p>
+        {% endif %}
+    </div>
+</body>
+</html>

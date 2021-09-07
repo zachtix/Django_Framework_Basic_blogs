@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <h1>Home Page</h1>
+    <p>Atthawut</p>
+    <h3>Django Framework Tutorial</h3>
+    <h2>หัวข้อ : {{ name }}</h2>
+    <h2>ผู้เขียน : {{ author }}</h2>
+    <div class="tag">
+        <h3>Tags</h3>
+        {% for tag in tags %}
+        <p>{{tag}}</p>
+        {% endfor %}
+    </div>
+    <div class="rating">
+        <h3>ระบความนิยม : </h3>
+        {% if rating >= 3 %}
+            <p>ได้รับความนิยม</p>
+        {% else %}
+            <p>ไม่ได้รับความนิยม</p>
+        {% endif %}
+    </div>
+{% endblock %}
