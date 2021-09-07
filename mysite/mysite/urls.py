@@ -20,5 +20,10 @@ from blogs import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.hello),
-    path('page1', views.page1)
+    path('page1', views.page1),
+    path('createForm', views.createForm),
+    path('addForm', views.addBlog),
+    path('registerForm', views.registerForm),
+    path('addUser', views.addUser),
+    path('loginForm', views.login),
 ]
