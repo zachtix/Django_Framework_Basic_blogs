@@ -25,5 +25,7 @@ urlpatterns = [
     path('addForm', views.addBlog),
     path('registerForm', views.registerForm),
     path('addUser', views.addUser),
-    path('loginForm', views.login),
+    path('loginForm', views.loginForm),
+    path('login', views.login),
+    path('logout', views.logout),
 ]

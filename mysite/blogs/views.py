@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Post
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, auth
 from django.contrib import messages
 # Create your views here.
 
@@ -47,10 +47,31 @@ def addUser(request):
             return redirect('/')
     else:
         messages.info(request, 'Password not Match')
-        return redirect('/registerForm')
+        # return redirect('/registerForm')
+        return render(request,'register.html', {'username':username, 'fname':fname, 'lname':lname, 'email':email})
 
 def registerForm(request):
     return render(request,'register.html')
 
-def login(request):
+def loginForm(request):
     return render(request,'login.html')
+
+def login(request):
+    username = request.POST['username']
+    password = request.POST['password']
+
+    user = auth.authenticate(username=username, password=password)
+    # return render(request,'login.html')
+    if user is not None:
+        auth.login(request, user)
+        return redirect('/')
+    else:
+        messages.info(request, 'Not Found Username')
+        messages.info(request, 'Invalid Username or Password')
+        # messages.info(request, 'Invalid user or password')
+        return redirect('/loginForm')
+
+
+def logout(request):
+    auth.logout(request)
+    return redirect('/')
